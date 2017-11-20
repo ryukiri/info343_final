@@ -2,3 +2,4 @@
 
 ## Team Members
 - Austin Quach
+- Michelle Chen
