@@ -6,6 +6,8 @@ import Container from 'muicss/lib/react/container';
 
 import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
+import FullScreenDialog from './FullScreenDialog.js'
+
 
 class App extends Component {
     render() {
@@ -37,12 +39,12 @@ class App extends Component {
                                 <i className="material-icons">search</i>
                                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input className="mdl-textfield__input" type="text" id="sample3"/>
-                                    <label className="mdl-textfield__label" for="sample3">Search</label>
+                                    <label className="mdl-textfield__label" htmlFor="sample3">Search</label>
                                 </div>
                                 <div className="mdl-textfield mdl-js-textfield">
                                 {/*
                                     <input className="mdl-textfield__input" type="text" id="sample1"/>
-                                    <label className="mdl-textfield__label" for="sample1">Seattle, WA</label>
+                                    <label className="mdl-textfield__label" htmlFor="sample1">Seattle, WA</label>
                                 */}
                                  <IntegrationAutosuggest className="mdl-textfield__input" />
                                 </div>
@@ -96,7 +98,7 @@ class App extends Component {
                             <ul className="mdl-mini-footer__link-list">
                                 <li><a href="#">Help</a></li>
                                 <li><a href="#">Privacy & Terms</a></li>
-                                <li><a href="#">Meet your team</a></li>
+                                <li><a><FullScreenDialog/></a></li>
                             </ul>
                         </div>
                     </footer>
@@ -105,6 +107,7 @@ class App extends Component {
             </div>
         );
     }
+
 }
 
 export default App;
