@@ -1,0 +1,77 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+#root {
+    /* The image used */
+    background-image: url("gmaps.png");
+
+    /* Full height */
+    height: 500px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    width: 100%;
+}
+
+.navLink {
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.mainbox {
+    max-width: 690px;    
+    height: 60px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.mdl-textfield {
+    margin-right: 5px;
+}
+
+.topCards {
+    margin-top: 450px;
+}
+
+.attractionCard {
+    width: 250px;
+    height: 150px;
+    padding: 20px;
+}
+/*Mobile*/
+@media (max-width: 1146px) {
+    .mainbox {
+        width: 30%;
+        height: 200px;
+    
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    
+        margin: auto;
+    }
+
+}
+a,.mdl-accordion,.mdl-button,.mdl-card,.mdl-checkbox,.mdl-dropdown-menu,.mdl-icon-toggle,.mdl-item,.mdl-radio,.mdl-slider,.mdl-switch,.mdl-tabs__tab{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}
