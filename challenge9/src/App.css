@@ -36,13 +36,14 @@ h3 {
     max-width: 690px;    
     height: 60px;
 
-    position: absolute;
+    /*position: absolute;
     top:0;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
+    margin-top: 250px;
 
-    margin: auto;
+    /*margin: auto;*/
 }
 
 .mdl-textfield {
@@ -50,7 +51,7 @@ h3 {
 }
 
 .topCards {
-    margin-top: 450px;
+    margin-top: 150px;
 }
 
 .attractionCard {
