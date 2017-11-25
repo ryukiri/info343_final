@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Appbar from 'muicss/lib/react/appbar';
-import Button from 'muicss/lib/react/button';
-import Container from 'muicss/lib/react/container';
 
 import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
