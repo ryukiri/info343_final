@@ -24,25 +24,17 @@ function SimpleMediaCard(props) {
         <CardMedia
           className={classes.media}
           image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          title="Ali Rafiq"
         />
         <CardContent>
           <Typography type="headline" component="h2">
-            Name
+            Ali Rafiq
           </Typography>
           <Typography component="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 
             Duis fringilla ipsum dolor, sit amet consequat ex placerat a. Sed ultricies sem sit amet lobortis dignissim.
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button dense color="primary">
-            Share
-          </Button>
-          <Button dense color="primary">
-            Learn More
-          </Button>
-        </CardActions>
       </Card>
     </div>
   );

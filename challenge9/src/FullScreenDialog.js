@@ -13,7 +13,11 @@ import Typography from 'material-ui/Typography';
 import CloseIcon from 'material-ui-icons/Close';
 import Slide from 'material-ui/transitions/Slide';
 
-import SimpleMediaCard from './SimpleMediaCard';
+import AustinCard from './AustinCard';
+import MichelleCard from './MichelleCard';
+import AliCard from './AliCard';
+
+import './App.css';
 
 const styles = {
   appBar: {
@@ -63,17 +67,17 @@ class FullScreenDialog extends React.Component {
             </Toolbar>
         </AppBar>
         
-        <div className="container row">
+        <div className="container row devCards">
             <div className="col-md-4">
-                <SimpleMediaCard/>
+                <AliCard/>
             </div>
 
             <div className="col-md-4">
-                <SimpleMediaCard/>
+                <AustinCard/>
             </div>
 
             <div className="col-md-4">
-                <SimpleMediaCard/>
+                <MichelleCard/>
             </div>
         </div>
         

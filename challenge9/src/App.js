@@ -4,9 +4,15 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
+import SimpleMap from './SimpleMap.js';
 
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
+    handleClick() {
+        ReactDOM.render(<SimpleMap />, document.getElementById('root'));
+    }
+
     render() {
         return (
             <div>
@@ -32,7 +38,7 @@ class App extends Component {
                     
 
                         <div className="card container mainbox">
-                            <form action="#">
+                            <form action="#" className="locationForm">
                                 <i className="material-icons">search</i>
                                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input className="mdl-textfield__input" type="text" id="sample3"/>
@@ -43,9 +49,12 @@ class App extends Component {
                                     <input className="mdl-textfield__input" type="text" id="sample1"/>
                                     <label className="mdl-textfield__label" htmlFor="sample1">Seattle, WA</label>
                                 */}
-                                 <IntegrationAutosuggest className="mdl-textfield__input" />
+                                    <IntegrationAutosuggest className="mdl-textfield__input" />
                                 </div>
-                                <a><i className="material-icons">send</i></a>
+                                <a>
+                                    {/*<button><i className="material-icons">send</i></button>*/}
+                                    <button onClick={this.handleClick}><i className="material-icons">send</i></button>
+                                </a>
                             </form>
                         </div>
                     </div>
@@ -54,32 +63,32 @@ class App extends Component {
                         <h3>Find Top Attractions Nearby</h3>
 
                         <div className="row">
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-xs-6 col-md-4">
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
