@@ -1,0 +1,28 @@
+{
+  "name": "challenge9",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://info343a-au17.github.io/team6-challenge9/challenge9",
+  "dependencies": {
+    "autosuggest-highlight": "^3.1.1",
+    "gh-pages": "^1.0.0",
+    "google-map-react": "^0.25.0",
+    "material-ui": "^1.0.0-beta.21",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "muicss": "^0.9.30",
+    "react": "^16.1.0",
+    "react-autosuggest": "^9.3.2",
+    "react-dom": "^16.1.0",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src --ext .js --ext .jsx",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -a -e challenge9"
+  },
+  "devDependencies": {
+    "@jasonnutter/eslint-config": "^3.0.0"
+  }
+}
