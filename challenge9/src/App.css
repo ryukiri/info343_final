@@ -33,18 +33,9 @@ h3 {
 }
 
 .mainbox {
-    /*max-width: 690px;*/
-    max-width: 720px;
+    max-width: 400px;
     height: 60px;
-
-    /*position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;*/
     margin-top: 250px;
-
-    /*margin: auto;*/
 }
 
 .locationForm {
@@ -69,26 +60,22 @@ h3 {
     margin: 50px;
 }
 
+.demo-list-item {
+    width: 300px;
+}
+
+.materialList {
+    padding: 40px;
+}
+
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {
-        /*width: 30%;*/
-        width: 380px;
-        height: 200px;
-    
-        /*position: absolute;
-        top:0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    
-        margin: auto;*/
-
         margin-top: 150px;
     }
 
     .topCards {
-        margin-top: 150px;
+        margin-top: 200px;
     }
 }
 a,.mdl-accordion,.mdl-button,.mdl-card,.mdl-checkbox,.mdl-dropdown-menu,.mdl-icon-toggle,.mdl-item,.mdl-radio,.mdl-slider,.mdl-switch,.mdl-tabs__tab{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}

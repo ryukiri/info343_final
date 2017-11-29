@@ -18,7 +18,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
     handleClick() {
-        ReactDOM.render(<SimpleMap />, document.getElementById('root'));
+        ReactDOM.render(<SimpleMap />, document.getElementById('auto'));
     }
 
     constructor(props) {
@@ -52,17 +52,6 @@ class App extends Component {
                         <nav>
                             <div className="nav-wrapper container">
                                 <a className="navLink" href="#" className="brand-logo">Bored</a>
-                                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                    {/*<li><a className="navLink" href="">Nav Link 1</a></li>
-                                    <li>
-                                        <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
-                                            Sign Up
-                                        </button>
-                                        <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
-                                            Log In
-                                        </button>
-                                    </li>*/}
-                                </ul>
                             </div>
                         </nav>
                     
@@ -71,6 +60,9 @@ class App extends Component {
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
+                                     this.state = {
+                                        list: []
+                                    };
                                  }}
                              />
                         </div>
@@ -158,12 +150,11 @@ class App extends Component {
                 console.log(eventURL);
                 console.log(events);
 
-                
                 var newList;
 
                 for(var i = 0; i < events.length; i++) {
                     var existingList = this.state.list;
-                    newList = existingList.concat([ events[i].name ]);
+                    newList = existingList.concat([ events[i] ]);
                     this.setState({
                         list: newList
                     });
@@ -184,14 +175,6 @@ class App extends Component {
         
         handleFormSubmit(item) {
             this.fetchEvents(item);
-            /*var existingList = this.state.list;
-            var newList = existingList.concat([ item ]);
-        
-            this.setState({
-                list: newList
-            });
-        
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));*/
         }
 
 }
