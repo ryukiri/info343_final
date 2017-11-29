@@ -17,9 +17,6 @@ var events;
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
-    handleClick() {
-        ReactDOM.render(<Map />, document.getElementById('root'));
-    }
 
     constructor(props) {
         super(props);
@@ -36,12 +33,11 @@ class App extends Component {
         this.setState({
             list: savedListArray
         });
-    
-        /*if (savedListArray.length > 0) {
-            this.fetchEvents(savedListArray[0]);
-        }*/
     }
-        
+    
+    handleClick() {
+        ReactDOM.render(<Map />, document.getElementById('root'));
+    }
 
     render() {
         return (
@@ -63,7 +59,7 @@ class App extends Component {
                                      //this.handleClick();
                                      this.state = {
                                         list: []
-                                    };
+                                     };
                                  }}
                              />
                         </div>
@@ -151,25 +147,25 @@ class App extends Component {
                 console.log(eventName);
                 console.log(eventURL);
                 console.log(events);
-
+                
+                var existingList = this.state.list;
                 var newList;
 
                 for(var i = 0; i < events.length; i++) {
-                    var existingList = this.state.list;
-                    newList = existingList.concat([ events[i] ]);
+                    
+                    existingList = existingList.concat([ events[i] ]);
                     this.setState({
-                        list: newList
+                        list: existingList
                     });
                 }
 
-                
 
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(existingList));
 
                 this.setState({
                     eventName: eventName,
                     eventURL: eventURL,
-                    events: events
+                    events: events, 
                 });
 
             })

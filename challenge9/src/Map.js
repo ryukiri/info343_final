@@ -10,19 +10,27 @@ const style = {
 }
 
 var STORAGE_KEY = 'locationList';
+var savedListString; 
+var savedListArray; 
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SimpleMap extends Component {
   constructor(props) {
     super(props);
-     
-    var savedListString = localStorage.getItem(STORAGE_KEY);
-    var savedListArray = JSON.parse(savedListString) || [];
+
     this.state = {
+      list: []
+    };
+  } 
+  
+  componentDidMount() {
+    savedListString = localStorage.getItem(STORAGE_KEY); 
+    savedListArray = JSON.parse(savedListString) || [];
+    this.setState = {
         list: savedListArray
     };
-  }
+}
 
   render() {
     return (
@@ -52,6 +60,9 @@ class SimpleMap extends Component {
                 list={this.state.list}
             />
           </div>
+
+          
+          
         </div>
         
     );
