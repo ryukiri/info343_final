@@ -73,6 +73,10 @@ h3 {
     text-align: center;
 }
 
+.bottom {
+    margin-top: 500px;
+}
+
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {

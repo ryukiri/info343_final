@@ -33,9 +33,9 @@ class App extends Component {
         var savedListString = localStorage.getItem(STORAGE_KEY);
         var savedListArray = JSON.parse(savedListString) || [];
     
-        /*this.setState({
+        this.setState({
             list: savedListArray
-        });*/
+        });
     
         /*if (savedListArray.length > 0) {
             this.fetchEvents(savedListArray[0]);

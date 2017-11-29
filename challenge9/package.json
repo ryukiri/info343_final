@@ -8,6 +8,7 @@
     "dialog-polyfill": "^0.4.9",
     "gh-pages": "^1.0.0",
     "google-map-react": "^0.25.0",
+    "google-maps-react": "^1.1.2",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
     "muicss": "^0.9.30",
