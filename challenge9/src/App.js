@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
-import SimpleMap from './SimpleMap.js';
+import Map from './Map.js';
 import Search from './Search';
 import List from './List';
 import EventDetails from './EventDetails';
@@ -12,34 +12,36 @@ import EventDetails from './EventDetails';
 var STORAGE_KEY = 'locationList';
 
 var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
+var events;
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
     handleClick() {
-        ReactDOM.render(<SimpleMap />, document.getElementById('root'));
+        ReactDOM.render(<Map />, document.getElementById('root'));
     }
 
     constructor(props) {
         super(props);
- 
+         
         this.state = {
             list: []
         };
     }
- 
+         
     componentDidMount() {
         var savedListString = localStorage.getItem(STORAGE_KEY);
         var savedListArray = JSON.parse(savedListString) || [];
- 
+    
         this.setState({
             list: savedListArray
         });
- 
-        if (savedListArray.length > 0) {
+    
+        /*if (savedListArray.length > 0) {
             this.fetchEvents(savedListArray[0]);
-        }
+        }*/
     }
+        
 
     render() {
         return (
@@ -50,38 +52,26 @@ class App extends Component {
                         <nav>
                             <div className="nav-wrapper container">
                                 <a className="navLink" href="#" className="brand-logo">Bored</a>
-                                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                    <li><a className="navLink" href="">Nav Link 1</a></li>
-                                    <li>
-                                        <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
-                                            Sign Up
-                                        </button>
-                                        <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
-                                            Log In
-                                        </button>
-                                    </li>
-                                </ul>
                             </div>
                         </nav>
                     
 
                         <div className="card container mainbox">
                             <Search className="locationForm"
-                                onFormSubmit={(item) => {
-                                    this.handleFormSubmit(item);
-                                    window.location.href='map.html';
-                                }}
-                            />
+                                 onFormSubmit={(item) => {
+                                     this.handleFormSubmit(item);
+                                     //this.handleClick();
+                                     this.state = {
+                                        list: []
+                                    };
+                                 }}
+                             />
                         </div>
-
-                        <List
-                           list={this.state.list}
-                        />
-
-                        <EventDetails
-                            events = {this.state.events}
-                            eventURL = {this.state.eventURL}
-                       />
+                                 
+                    <List
+                        list={this.state.list}
+                    />
+                        
                     </div>
 
                     <div className="container topCards">
@@ -152,7 +142,7 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                var events = json._embedded.events;
+                events = json._embedded.events;
                 var event = events[0];
                 var eventID = event.id;
                 var eventName = event.name;
@@ -162,25 +152,33 @@ class App extends Component {
                 console.log(eventURL);
                 console.log(events);
 
+                var newList;
+
+                for(var i = 0; i < events.length; i++) {
+                    var existingList = this.state.list;
+                    newList = existingList.concat([ events[i] ]);
+                    this.setState({
+                        list: newList
+                    });
+                }
+
+                
+
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+
                 this.setState({
                     eventName: eventName,
                     eventURL: eventURL,
                     events: events
                 });
-            })
-    }
 
-    handleFormSubmit(item) {
-        this.fetchEvents(item);
-        var existingList = this.state.list;
-        var newList = existingList.concat([ item ]);
- 
-        this.setState({
-            list: newList
-        });
- 
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
-    }
+            })
+        }   
+        
+        handleFormSubmit(item) {
+            this.fetchEvents(item);
+        }
+
 }
 
 export default App;

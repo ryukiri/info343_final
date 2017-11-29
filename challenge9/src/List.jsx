@@ -1,33 +1,93 @@
 import React, { Component } from 'react';
+import Dialog, {
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    withMobileDialog,
+  } from 'material-ui/Dialog';
+  import PropTypes from 'prop-types';
+  import Button from 'material-ui/Button';
 
-class List extends Component {
-   render() {
-       var arrayIsNotEmpty = this.props.list.length > 0;
+class List extends React.Component {
+    details(URL) {
+       /*window.open(
+            URL,
+            '_blank'
+        );*/
+    
+        var dialog = document.querySelector('dialog');
+        dialog.showModal();
+        dialog.querySelector('.close').addEventListener('click', function() {
+            if(dialog.open)
+                dialog.close();
+        });
+    }
 
-       return (
-           <div>
-               {arrayIsNotEmpty ? (
-                   <div>
-                       <h2>My Locations</h2>
-                       <ul className="list-group">
-                           {this.props.list.map((item, index) => {
-                               return (
-                                   <li className="list-group-item" key={index}>
-                                       <a onClick={(e) => {
-                                           e.preventDefault();
-                                       }}
-                                       >{item}</a>
-                                   </li>
-                               );
-                           })}
-                       </ul>
-                   </div>
-               ) : (
-                   <div>List is empty</div>
-               )}
-           </div>
-       );
-   }
+    render() {
+        var arrayIsNotEmpty = this.props.list.length > 0;
+
+        return (
+            <div>
+                {arrayIsNotEmpty ? (
+                    <div className="materialList">
+                        <h2>Events</h2>
+                        <ul className="demo-list-item list-group mdl-list">
+                            {this.props.list.map((item, index) => {
+                                return (
+                                    <li className="list-group-item mdl-list__item" key={index}>
+                                            <span className="mdl-list__item-primary-content">
+                                                <a onClick={(e) => {
+                                                    e.preventDefault();
+                                                    this.details(item.url);
+                                                    console.log("Dates: " + item.dates.start.localDate);
+                                                    console.log("Info: " + item.info);
+                                                    console.log("Min Price: " + item.priceRanges[0].min);
+                                                    console.log("Max Price: " + item.priceRanges[0].max);
+
+                                                    var title = document.getElementsByClassName('mdl-dialog__title');
+                                                    title[0].textContent = item.name;
+
+                                                    var eventURL = document.getElementById('eventURL');
+                                                    eventURL.setAttribute('href', item.url);
+
+                                                    var dates = document.getElementsByClassName('eventDates');
+                                                    dates[0].textContent = item.dates.start.localDate + " " + item.dates.start.localTime;
+
+                                                    var priceInfo = document.getElementsByClassName('prices');
+                                                    priceInfo[0].textContent = '$' + item.priceRanges[0].min + ' - $' + item.priceRanges[0].max;
+
+                                                    var eventInfo = document.getElementsByClassName('EventInfo');
+                                                    eventInfo[0].textContent = item.info;
+                                                    
+
+                                                }}>
+                                                    {item.name}
+                                                </a>
+                                        </span>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                        <dialog className="mdl-dialog">
+                            <a id="eventURL" target="_blank"><h4 className="mdl-dialog__title"></h4></a>
+                            <h5 className="eventDates"></h5>
+                            <div className="mdl-dialog__content">
+                                <h3 className="prices"></h3>
+                                <p className="EventInfo">
+                                </p>
+                            </div>
+                            <div className="mdl-dialog__actions">
+                                <button type="button" className="mdl-button close">Ok</button>
+                            </div>
+                        </dialog>
+                    </div>
+                ) : (
+                    <div>List is empty</div>
+                )}
+            </div>
+        );
+    }
 }
 
 export default List;
