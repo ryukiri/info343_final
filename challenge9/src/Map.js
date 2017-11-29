@@ -19,6 +19,7 @@ class SimpleMap extends Component {
      
     var savedListString = localStorage.getItem(STORAGE_KEY);
     var savedListArray = JSON.parse(savedListString) || [];
+
     this.state = {
         list: savedListArray
     };
@@ -47,13 +48,11 @@ class SimpleMap extends Component {
           </div>
 
           <div className="bottom">
-          <h1>TEST HEADER</h1>
             <List
                 list={this.state.list}
             />
           </div>
         </div>
-        
     );
   }
 }

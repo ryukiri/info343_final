@@ -36,10 +36,6 @@ class App extends Component {
         this.setState({
             list: savedListArray
         });
-    
-        /*if (savedListArray.length > 0) {
-            this.fetchEvents(savedListArray[0]);
-        }*/
     }
         
 
@@ -60,17 +56,17 @@ class App extends Component {
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
-                                     //this.handleClick();
-                                     this.state = {
+                                     this.handleClick();
+                                     /*this.state = {
                                         list: []
-                                    };
+                                    };*/
                                  }}
                              />
                         </div>
                                  
-                    <List
+                    {/*<List
                         list={this.state.list}
-                    />
+                    />*/}
                         
                     </div>
 
@@ -147,29 +143,35 @@ class App extends Component {
                 var eventID = event.id;
                 var eventName = event.name;
                 var eventURL = event.url;
-                console.log(eventID);
+                /*console.log(eventID);
                 console.log(eventName);
                 console.log(eventURL);
-                console.log(events);
+                console.log(events);*/
 
+                var existingList = this.state.list;
                 var newList;
 
                 for(var i = 0; i < events.length; i++) {
-                    var existingList = this.state.list;
-                    newList = existingList.concat([ events[i] ]);
-                    this.setState({
+                    //existingList = this.state.list;
+                    existingList = existingList.concat([ events[i] ]);
+                    /*this.setState({
                         list: newList
-                    });
+                    });*/
+                    //console.log(newList);
+                    //console.log(existingList);
                 }
 
+                //console.log(newList);
+
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(existingList));
+                //console.log("SAVED1: " + localStorage.getItem(STORAGE_KEY));
+                //console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
                 
-
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
-
                 this.setState({
                     eventName: eventName,
                     eventURL: eventURL,
-                    events: events
+                    events: events,
+                    list: existingList
                 });
 
             })
