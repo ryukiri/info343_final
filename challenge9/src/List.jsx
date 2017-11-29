@@ -8,7 +8,7 @@ class List extends Component {
            <div>
                {arrayIsNotEmpty ? (
                    <div>
-                       <h2>My Locations</h2>
+                       <h2>Events</h2>
                        <ul className="list-group">
                            {this.props.list.map((item, index) => {
                                return (
