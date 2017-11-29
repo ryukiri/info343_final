@@ -5,6 +5,14 @@ import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
 import SimpleMap from './SimpleMap.js';
+import Search from './Search';
+import List from './List';
+import EventDetails from './EventDetails';
+
+var STORAGE_KEY = 'locationList';
+
+var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
+var events;
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -12,6 +20,28 @@ class App extends Component {
     handleClick() {
         ReactDOM.render(<SimpleMap />, document.getElementById('root'));
     }
+
+    constructor(props) {
+                super(props);
+         
+                this.state = {
+                    list: []
+                };
+            }
+         
+            componentDidMount() {
+                var savedListString = localStorage.getItem(STORAGE_KEY);
+                var savedListArray = JSON.parse(savedListString) || [];
+         
+                /*this.setState({
+                    list: savedListArray
+                });
+         
+                if (savedListArray.length > 0) {
+                    this.fetchEvents(savedListArray[0]);
+                }*/
+            }
+        
 
     render() {
         return (
@@ -23,7 +53,7 @@ class App extends Component {
                             <div className="nav-wrapper container">
                                 <a className="navLink" href="#" className="brand-logo">Bored</a>
                                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                    <li><a className="navLink" href="">Nav Link 1</a></li>
+                                    {/*<li><a className="navLink" href="">Nav Link 1</a></li>
                                     <li>
                                         <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
                                             Sign Up
@@ -31,32 +61,23 @@ class App extends Component {
                                         <button className="mdl-button mdl-js-button mdl-js-ripple-effect navLink">
                                             Log In
                                         </button>
-                                    </li>
+                                    </li>*/}
                                 </ul>
                             </div>
                         </nav>
                     
 
                         <div className="card container mainbox">
-                            <form action="#" className="locationForm">
-                                <i className="material-icons">search</i>
-                                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input className="mdl-textfield__input" type="text" id="sample3"/>
-                                    <label className="mdl-textfield__label" htmlFor="sample3">Search</label>
-                                </div>
-                                <div className="mdl-textfield mdl-js-textfield">
-                                {/*
-                                    <input className="mdl-textfield__input" type="text" id="sample1"/>
-                                    <label className="mdl-textfield__label" htmlFor="sample1">Seattle, WA</label>
-                                */}
-                                    <IntegrationAutosuggest className="mdl-textfield__input" />
-                                </div>
-                                <a>
-                                    {/*<button><i className="material-icons">send</i></button>*/}
-                                    <button onClick={this.handleClick}><i className="material-icons">send</i></button>
-                                </a>
-                            </form>
+                            <Search className="locationForm"
+                                 onFormSubmit={(item) => {
+                                     this.handleFormSubmit(item);
+                                 }}
+                             />
                         </div>
+
+                        <List
+                            list={this.state.list}
+                        />
                     </div>
 
                     <div className="container topCards">
@@ -113,6 +134,65 @@ class App extends Component {
             </div>
         );
     }
+
+    fetchEvents(query) {
+        var url;
+        if (isNaN(query)) {
+            url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=' + query + '&apikey=' + API_KEY;            
+        } else{
+            url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&postalCode=' + query + '&apikey=' + API_KEY;
+        }
+
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                events = json._embedded.events;
+                var event = events[0];
+                var eventID = event.id;
+                var eventName = event.name;
+                var eventURL = event.url;
+                console.log(eventID);
+                console.log(eventName);
+                console.log(eventURL);
+                console.log(events);
+
+                
+                var newList;
+
+                for(var i = 0; i < events.length; i++) {
+                    var existingList = this.state.list;
+                    newList = existingList.concat([ events[i].name ]);
+                    this.setState({
+                        list: newList
+                    });
+                }
+
+                
+
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+
+                this.setState({
+                    eventName: eventName,
+                    eventURL: eventURL,
+                    events: events
+                });
+
+            })
+        }   
+        
+        handleFormSubmit(item) {
+            this.fetchEvents(item);
+            /*var existingList = this.state.list;
+            var newList = existingList.concat([ item ]);
+        
+            this.setState({
+                list: newList
+            });
+        
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));*/
+        }
 
 }
 
