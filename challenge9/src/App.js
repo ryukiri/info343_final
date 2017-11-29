@@ -22,25 +22,25 @@ class App extends Component {
     }
 
     constructor(props) {
-                super(props);
+        super(props);
          
-                this.state = {
-                    list: []
-                };
-            }
+        this.state = {
+            list: []
+        };
+    }
          
-            componentDidMount() {
-                var savedListString = localStorage.getItem(STORAGE_KEY);
-                var savedListArray = JSON.parse(savedListString) || [];
-         
-                /*this.setState({
-                    list: savedListArray
-                });
-         
-                if (savedListArray.length > 0) {
-                    this.fetchEvents(savedListArray[0]);
-                }*/
-            }
+    componentDidMount() {
+        var savedListString = localStorage.getItem(STORAGE_KEY);
+        var savedListArray = JSON.parse(savedListString) || [];
+    
+        /*this.setState({
+            list: savedListArray
+        });*/
+    
+        /*if (savedListArray.length > 0) {
+            this.fetchEvents(savedListArray[0]);
+        }*/
+    }
         
 
     render() {
@@ -67,10 +67,11 @@ class App extends Component {
                                  }}
                              />
                         </div>
-
-                        <List
-                            list={this.state.list}
-                        />
+                                 
+                    <List
+                        list={this.state.list}
+                    />
+                        
                     </div>
 
                     <div className="container topCards">
