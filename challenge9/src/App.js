@@ -64,9 +64,9 @@ class App extends Component {
                              />
                         </div>
                                  
-                    {/*<List
+                    <List
                         list={this.state.list}
-                    />*/}
+                    />
                         
                     </div>
 
