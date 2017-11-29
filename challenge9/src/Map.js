@@ -12,16 +12,24 @@ class SimpleMap extends Component {
 
   render() {
     return (
-      <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-      >
-        <AnyReactComponent
-          lat={47.658109}
-          lng={-122.308618}
-          text={'UW Campus'}
-        />
-      </GoogleMapReact>
+      <div>
+        <nav>
+            <div className="nav-wrapper container">
+                <a className="navLink" href="#" className="brand-logo">Bored</a>
+            </div>
+        </nav>
+        
+        <GoogleMapReact
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <AnyReactComponent
+            lat={47.658109}
+            lng={-122.308618}
+            text={'UW Campus'}
+          />
+        </GoogleMapReact>
+      </div>
     );
   }
 }

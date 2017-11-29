@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
-import SimpleMap from './SimpleMap.js';
+import Map from './Map.js';
 import Search from './Search';
 import List from './List';
 import EventDetails from './EventDetails';
@@ -18,7 +18,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
     handleClick() {
-        ReactDOM.render(<SimpleMap />, document.getElementById('auto'));
+        ReactDOM.render(<Map />, document.getElementById('root'));
     }
 
     constructor(props) {
@@ -60,6 +60,7 @@ class App extends Component {
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
+                                     //this.handleClick();
                                      this.state = {
                                         list: []
                                     };
