@@ -68,6 +68,11 @@ h3 {
     padding: 40px;
 }
 
+.eventDates {
+    color: gray;
+    text-align: center;
+}
+
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {
