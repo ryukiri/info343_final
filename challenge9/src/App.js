@@ -57,9 +57,9 @@ class App extends Component {
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
                                      this.handleClick();
-                                     /*this.state = {
+                                     this.state = {
                                         list: []
-                                    };*/
+                                    };
                                  }}
                              />
                         </div>
