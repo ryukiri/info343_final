@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
 import List from './List';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './App.css';
@@ -13,33 +12,33 @@ var STORAGE_KEY = 'locationList';
 var savedListString; 
 var savedListArray; 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 class SimpleMap extends Component {
   constructor(props) {
     super(props);
-
+     
+    var savedListString = localStorage.getItem(STORAGE_KEY);
+    var savedListArray = JSON.parse(savedListString) || [];
+    
     this.state = {
-      list: []
+      list: savedListArray
     };
-  } 
-  
-  componentDidMount() {
-    savedListString = localStorage.getItem(STORAGE_KEY); 
-    savedListArray = JSON.parse(savedListString) || [];
-    this.setState = {
-        list: savedListArray
-    };
-}
+
+  }
+
+  componentDidMount(){
+    console.log(this.state.list);
+  }
 
   render() {
     return (
-       <div>
-         <nav>
+      <div>
+        {
+        <div>
+          <nav>
             <div className="nav-wrapper container">
-                <a className="navLink" href="#" className="brand-logo">Bored</a>
+              <a className="navLink" href="#" className="brand-logo">Bored</a>
             </div>
-        </nav>
+          </nav>
           <div className="mapRender">
             <Map
               google={this.props.google}
@@ -55,16 +54,16 @@ class SimpleMap extends Component {
           </div>
 
           <div className="bottom">
-          <h1>TEST HEADER</h1>
             <List
                 list={this.state.list}
-            />
+            />         
           </div>
 
           
           
         </div>
-        
+        }
+      </div>
     );
   }
 }
