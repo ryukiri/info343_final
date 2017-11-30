@@ -4,8 +4,10 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './App.css';
 
 const style = {
-  width: '100%',
-  height: '500px'
+  width: '65%',
+  height: '100%',
+  paddingRight: '300px',
+  
 }
 
 var STORAGE_KEY = 'locationList';
@@ -33,12 +35,13 @@ class SimpleMap extends Component {
     return (
       <div>
         {
-        <div>
+        <div className="mapMain">
           <nav>
             <div className="nav-wrapper container">
               <a className="navLink" href="#" className="brand-logo">Bored</a>
             </div>
           </nav>
+
           <div className="mapRender">
             <Map
               google={this.props.google}
