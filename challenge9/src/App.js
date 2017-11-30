@@ -2,24 +2,18 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import './App.css';
-import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.js';
 import Search from './Search';
-import List from './List';
-import EventDetails from './EventDetails';
 
 var STORAGE_KEY = 'locationList';
 
 var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
 var events;
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+//const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
-    handleClick() {
-        ReactDOM.render(<Map />, document.getElementById('root'));
-    }
 
     constructor(props) {
         super(props);
@@ -36,12 +30,11 @@ class App extends Component {
         this.setState({
             list: savedListArray
         });
-    
-        /*if (savedListArray.length > 0) {
-            this.fetchEvents(savedListArray[0]);
-        }*/
     }
-        
+    
+    handleClick() {
+        ReactDOM.render(<Map />, document.getElementById('root'));
+    }
 
     render() {
         return (
@@ -55,23 +48,17 @@ class App extends Component {
                             </div>
                         </nav>
                     
-
                         <div className="card container mainbox">
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
-                                     //this.handleClick();
+                                     this.handleClick();
                                      this.state = {
                                         list: []
-                                    };
+                                     };
                                  }}
                              />
-                        </div>
-                                 
-                    <List
-                        list={this.state.list}
-                    />
-                        
+                        </div>    
                     </div>
 
                     <div className="container topCards">
@@ -147,29 +134,22 @@ class App extends Component {
                 var eventID = event.id;
                 var eventName = event.name;
                 var eventURL = event.url;
-                console.log(eventID);
-                console.log(eventName);
-                console.log(eventURL);
-                console.log(events);
-
-                var newList;
+                var existingList = this.state.list;
 
                 for(var i = 0; i < events.length; i++) {
-                    var existingList = this.state.list;
-                    newList = existingList.concat([ events[i] ]);
+                    existingList = existingList.concat([ events[i] ]);
                     this.setState({
-                        list: newList
+                        list: existingList
                     });
                 }
 
-                
 
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(existingList));
 
                 this.setState({
                     eventName: eventName,
                     eventURL: eventURL,
-                    events: events
+                    events: events, 
                 });
 
             })
