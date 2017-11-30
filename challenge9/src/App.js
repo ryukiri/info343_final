@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import './App.css';
-import IntegrationAutosuggest from './Autosuggest.js'
 import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.js';
 import Search from './Search';
 import List from './List';
-import EventDetails from './EventDetails';
 
 var STORAGE_KEY = 'locationList';
 
 var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
 var events;
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+//const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class App extends Component {
     handleClick() {
@@ -51,7 +49,6 @@ class App extends Component {
                             </div>
                         </nav>
                     
-
                         <div className="card container mainbox">
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
@@ -62,12 +59,7 @@ class App extends Component {
                                     };
                                  }}
                              />
-                        </div>
-                                 
-                    <List
-                        list={this.state.list}
-                    />
-                        
+                        </div>    
                     </div>
 
                     <div className="container topCards">
@@ -149,16 +141,9 @@ class App extends Component {
                 console.log(events);*/
 
                 var existingList = this.state.list;
-                var newList;
 
                 for(var i = 0; i < events.length; i++) {
-                    //existingList = this.state.list;
                     existingList = existingList.concat([ events[i] ]);
-                    /*this.setState({
-                        list: newList
-                    });*/
-                    //console.log(newList);
-                    //console.log(existingList);
                 }
 
                 //console.log(newList);

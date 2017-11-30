@@ -1,13 +1,4 @@
-import React, { Component } from 'react';
-import Dialog, {
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    withMobileDialog,
-  } from 'material-ui/Dialog';
-  import PropTypes from 'prop-types';
-  import Button from 'material-ui/Button';
+import React from 'react';
 
 class List extends React.Component {
     details(URL) {
