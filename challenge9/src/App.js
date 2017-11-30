@@ -5,7 +5,6 @@ import './App.css';
 import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.js';
 import Search from './Search';
-import List from './List';
 
 var STORAGE_KEY = 'locationList';
 
