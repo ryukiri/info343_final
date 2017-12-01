@@ -68,6 +68,13 @@ li.list-group-item.mdl-list__item.listItems:hover {
     background-color: #F2F2F2;
 }
 
+.alert-danger {
+    display: none;
+}
+
+.alert-danger.active {
+    display: block;
+}
 
 .materialList {
     padding: 40px;

@@ -10,8 +10,19 @@ var STORAGE_KEY = 'locationList';
 
 var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
 var events;
+var changeInfoError = document.getElementById('change-error');
 
 //const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+function changeError(message) {
+    changeInfoError.textContent = message;
+    changeInfoError.classList.add('active');
+  }
+  
+  function clearChangeError() {
+    changeInfoError.textContent = "";
+    changeInfoError.classList.remove('active');
+  }
 
 class App extends Component {
     handleClick() {
@@ -34,8 +45,7 @@ class App extends Component {
             list: savedListArray
         });
     }
-        
-
+    
     render() {
         return (
             <div>
@@ -52,12 +62,13 @@ class App extends Component {
                             <Search className="locationForm"
                                  onFormSubmit={(item) => {
                                      this.handleFormSubmit(item);
-                                     this.handleClick();
                                      this.state = {
                                         list: []
                                     };
                                  }}
                              />
+                        <div id="change-error" className="alert alert-danger" role="alert"></div>
+
                         </div>    
                     </div>
 
@@ -129,36 +140,43 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                events = json._embedded.events;
-                var event = events[0];
-                var eventID = event.id;
-                var eventName = event.name;
-                var eventURL = event.url;
-                /*console.log(eventID);
-                console.log(eventName);
-                console.log(eventURL);
-                console.log(events);*/
-
-                var existingList = this.state.list;
-
-                for(var i = 0; i < events.length; i++) {
-                    existingList = existingList.concat([ events[i] ]);
-                }
-
-                //console.log(newList);
-
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(existingList));
-                //console.log("SAVED1: " + localStorage.getItem(STORAGE_KEY));
-                //console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+                console.log(json);
+                if(json.page.totalElements == 0) {
+                    changeInfoError = document.getElementById('change-error');
+                    console.log(changeInfoError);
+                    changeError("Invalid city (or there are no events near here)");
+                } else {
+                    changeInfoError = document.getElementById('change-error');
+                    clearChangeError();
+                    events = json._embedded.events;
                 
-                this.setState({
-                    eventName: eventName,
-                    eventURL: eventURL,
-                    events: events,
-                    eventID, eventID,
-                    list: existingList
-                });
+                    var event = events[0];
+                    var eventID = event.id;
+                    var eventName = event.name;
+                    var eventURL = event.url;
+                    /*console.log(eventID);
+                    console.log(eventName);
+                    console.log(eventURL);
+                    console.log(events);*/
 
+                    var existingList = this.state.list;
+
+                    for(var i = 0; i < events.length; i++) {
+                        existingList = existingList.concat([ events[i] ]);
+                    }
+
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(existingList));
+                    
+                    this.setState({
+                        eventName: eventName,
+                        eventURL: eventURL,
+                        events: events,
+                        eventID, eventID,
+                        list: existingList
+                    });
+
+                    this.handleClick();
+                }
             })
         }   
         
