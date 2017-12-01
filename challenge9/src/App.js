@@ -16,7 +16,6 @@ var events;
 var changeInfoError = document.getElementById('change-error');
 
 //const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 function changeError(message) {
     changeInfoError.textContent = message;
     changeInfoError.classList.add('active');
@@ -28,9 +27,6 @@ function changeError(message) {
   }
 
 class App extends Component {
-    handleClick() {
-        ReactDOM.render(<Map />, document.getElementById('root'));
-    }
 
     constructor(props) {
         super(props);
@@ -49,6 +45,10 @@ class App extends Component {
         });
     }
     
+    handleClick() {
+        ReactDOM.render(<Map />, document.getElementById('root'));
+    }
+
     render() {
         return (
             <div>
@@ -67,11 +67,10 @@ class App extends Component {
                                      this.handleFormSubmit(item);
                                      this.state = {
                                         list: []
-                                    };
+                                     };
                                  }}
                              />
                         <div id="change-error" className="alert alert-danger" role="alert"></div>
-
                         </div>    
                     </div>
 
