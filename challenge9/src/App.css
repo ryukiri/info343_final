@@ -47,7 +47,7 @@ h3 {
 }
 
 .container.topCards {
-    margin-top: 250px;
+    margin-top: 150px;
 }
 
 .attractionCard {
@@ -63,6 +63,11 @@ h3 {
 .demo-list-item {
     width: 300px;
 }
+
+li.list-group-item.mdl-list__item.listItems:hover {
+    background-color: #F2F2F2;
+}
+
 
 .materialList {
     padding: 40px;

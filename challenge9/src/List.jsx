@@ -26,7 +26,7 @@ class List extends React.Component {
                         <ul className="demo-list-item list-group mdl-list">
                             {this.props.list.map((item, index) => {
                                 return (
-                                    <li className="list-group-item mdl-list__item" key={index}>
+                                    <li className="list-group-item mdl-list__item listItems" key={index}>
                                             <span className="mdl-list__item-primary-content">
                                                 <a onClick={(e) => {
                                                     e.preventDefault();
@@ -35,6 +35,7 @@ class List extends React.Component {
                                                     console.log("Info: " + item.info);
                                                     console.log("Min Price: " + item.priceRanges[0].min);
                                                     console.log("Max Price: " + item.priceRanges[0].max);
+                                                    
 
                                                     var title = document.getElementsByClassName('mdl-dialog__title');
                                                     title[0].textContent = item.name;

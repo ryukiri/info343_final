@@ -3,11 +3,14 @@ import List from './List';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './App.css';
 
+var initLatitude;
+var initLongitude;
+var indents = [];
+
 const style = {
   width: '65%',
   height: '100%',
-  paddingRight: '300px',
-  
+  paddingRight: '300px',  
 }
 
 var STORAGE_KEY = 'locationList';
@@ -18,20 +21,28 @@ class SimpleMap extends Component {
      
     var savedListString = localStorage.getItem(STORAGE_KEY);
     var savedListArray = JSON.parse(savedListString) || [];
-    // console.log(localStorage.getItem(STORAGE_KEY));
     
     this.state = {
       list: savedListArray
     };
-
-    // console.log(this.state.list);
   }
 
   componentDidMount(){
     console.log(this.state.list);
+    initLatitude = this.state.list[0]._embedded.venues[0].location.latitude;
+    initLongitude = this.state.list[0]._embedded.venues[0].location.longitude;
   }
 
   render() {
+    for (var i = 0; i < this.state.list.length; i++) {
+      indents.push(
+        <Marker
+        onClick={this.onMarkerClick}
+        name={'SOMA'}
+        position={{lat: this.state.list[i]._embedded.venues[0].location.latitude, 
+                   lng: this.state.list[i]._embedded.venues[0].location.longitude}} />
+      );
+    }
     return (
       <div>
         {
@@ -46,13 +57,14 @@ class SimpleMap extends Component {
             <Map
               google={this.props.google}
               style={style}
-              initialCenter={{
-                lat: 47.657594,
-                lng: -122.309012
+              center={{
+                lat: initLatitude,
+                lng: initLongitude
               }}
-              zoom={15}
+              zoom={12}
               onClick={this.onMapClicked}
             >
+              {indents}
             </Map>
           </div>
 

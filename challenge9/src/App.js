@@ -155,6 +155,7 @@ class App extends Component {
                     eventName: eventName,
                     eventURL: eventURL,
                     events: events,
+                    eventID, eventID,
                     list: existingList
                 });
 
