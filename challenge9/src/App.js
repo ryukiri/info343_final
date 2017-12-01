@@ -113,8 +113,9 @@ class App extends Component {
                             </div>
                         </div>
 
-                        {/*
+                        
                         <div className="container row devCards">
+                            <h3>Meet the Team</h3>
                             <div className="col-md-4">
                                 <AliCard/>
                             </div>
@@ -127,7 +128,7 @@ class App extends Component {
                                 <MichelleCard/>
                             </div>
                         </div>
-                        */}
+                    
                         
                     <footer className="mdl-mini-footer">
                         <div className="mdl-mini-footer__left-section">

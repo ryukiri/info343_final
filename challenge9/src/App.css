@@ -107,14 +107,18 @@ li.list-group-item.mdl-list__item.listItems:hover {
     overflow: hidden;
 }
 
+dialog.mdl-dialog {
+    width: 60%;
+}
+
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {
         margin-top: 150px;
     }
 
-    .topCards {
-        margin-top: 200px;
+    .container.topCards {
+        margin-top: 250px;
     }
 }
 a,.mdl-accordion,.mdl-button,.mdl-card,.mdl-checkbox,.mdl-dropdown-menu,.mdl-icon-toggle,.mdl-item,.mdl-radio,.mdl-slider,.mdl-switch,.mdl-tabs__tab{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}
