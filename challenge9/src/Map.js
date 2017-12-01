@@ -25,6 +25,11 @@ class SimpleMap extends Component {
     this.state = {
       list: savedListArray
     };
+
+  }
+
+  componentDidMount(){
+    console.log(this.state.list);
   }
 
   componentDidMount(){
@@ -73,6 +78,9 @@ class SimpleMap extends Component {
                 list={this.state.list}
             />         
           </div>
+
+          
+          
         </div>
         }
       </div>
