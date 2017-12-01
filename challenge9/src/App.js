@@ -6,6 +6,10 @@ import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.js';
 import Search from './Search';
 
+import AustinCard from './AustinCard';
+import MichelleCard from './MichelleCard';
+import AliCard from './AliCard';
+
 var STORAGE_KEY = 'locationList';
 
 var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
@@ -80,35 +84,51 @@ class App extends Component {
                                 <div className="card attractionCard">
                                     I'm a card!
                                 </div>
-                            </div>
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
                                 </div>
-                            </div>
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
+                                <div className="col-xs-6 col-md-4">
+                                    <div className="card attractionCard">
+                                        I'm a card!
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
+                                <div className="col-xs-6 col-md-4">
+                                    <div className="card attractionCard">
+                                        I'm a card!
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
+                                <div className="col-xs-6 col-md-4">
+                                    <div className="card attractionCard">
+                                        I'm a card!
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
+                                <div className="col-xs-6 col-md-4">
+                                    <div className="card attractionCard">
+                                        I'm a card!
+                                    </div>
+                                </div>
+                                <div className="col-xs-6 col-md-4">
+                                    <div className="card attractionCard">
+                                        I'm a card!
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        {/*
+                        <div className="container row devCards">
+                            <div className="col-md-4">
+                                <AliCard/>
+                            </div>
+
+                            <div className="col-md-4">
+                                <AustinCard/>
+                            </div>
+
+                            <div className="col-md-4">
+                                <MichelleCard/>
+                            </div>
+                        </div>
+                        */}
+                        
                     <footer className="mdl-mini-footer">
                         <div className="mdl-mini-footer__left-section">
                             <div className="mdl-logo">

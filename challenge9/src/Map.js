@@ -7,7 +7,6 @@ var initLatitude;
 var initLongitude;
 var indents = [];
 
-
 const style = {
   width: '65%',
   height: '100%',
