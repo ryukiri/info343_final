@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.js';
-import Search from './Search';
+import Search from './Search'; 
+import AliCard from './AliCard'; 
+import AustinCard from './AustinCard'; 
+import MichelleCard from './MichelleCard'; 
 
 var STORAGE_KEY = 'locationList';
 
@@ -109,6 +112,21 @@ class App extends Component {
                         </div>
                     </div>
 
+                    <div className="container row devCards">
+                        <h3>Meet the Team</h3>
+                        <div className="col-md-4">
+                            <AliCard/>
+                        </div>
+
+                        <div className="col-md-4">
+                            <AustinCard/>
+                        </div>
+
+                        <div className="col-md-4">
+                            <MichelleCard/>
+                        </div>
+                    </div>
+         
                     <footer className="mdl-mini-footer">
                         <div className="mdl-mini-footer__left-section">
                             <div className="mdl-logo">

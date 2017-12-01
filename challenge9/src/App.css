@@ -53,11 +53,11 @@ h3 {
 .attractionCard {
     width: 250px;
     height: 150px;
-    padding: 20px;
+    padding: 20px; 
 }
 
-.devCards {
-    margin: 50px;
+div.container.row.devCards {
+    margin: 0 auto; 
 }
 
 .demo-list-item {
