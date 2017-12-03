@@ -13,51 +13,27 @@ const style = {
   paddingRight: '300px',  
 }
 
-var STORAGE_KEY = 'locationList';
-
 class SimpleMap extends Component {
   constructor(props) {
     super(props);
-     
-    var savedListString = localStorage.getItem(STORAGE_KEY);
-    var savedListArray = JSON.parse(savedListString) || [];
     
     this.state = {
-      list: savedListArray
+      list: []
     };
-
   }
 
   componentDidMount(){
-    console.log(this.state.list);
-  }
-
-  componentDidMount(){
-    console.log(this.state.list);
-    initLatitude = this.state.list[0]._embedded.venues[0].location.latitude;
-    initLongitude = this.state.list[0]._embedded.venues[0].location.longitude;
+    if (this.props.list[0]) {
+      initLatitude = this.props.list[0]._embedded.venues[0].location.latitude;
+      initLongitude = this.props.list[0]._embedded.venues[0].location.longitude;
+    }
   }
 
   render() {
-    for (var i = 0; i < this.state.list.length; i++) {
-      indents.push(
-        <Marker
-        onClick={this.onMarkerClick}
-        name={'SOMA'}
-        position={{lat: this.state.list[i]._embedded.venues[0].location.latitude, 
-                   lng: this.state.list[i]._embedded.venues[0].location.longitude}} />
-      );
-    }
-    return (
-      <div>
-        {
-        <div className="mapMain">
-          <nav>
-            <div className="nav-wrapper container">
-              <a className="navLink" href="#" className="brand-logo">Bored</a>
-            </div>
-          </nav>
 
+    return (  
+      <div>
+        <div className="mapMain">
           <div className="mapRender">
             <Map
               google={this.props.google}
@@ -69,20 +45,27 @@ class SimpleMap extends Component {
               zoom={12}
               onClick={this.onMapClicked}
             >
-              {indents}
+              {this.props.list.map((item) => {
+                return (
+                    <Marker
+                      key={item.id}
+                      onClick={this.onMarkerClick}
+                      name={'SOMA'}
+                      position={{
+                        lat: item._embedded.venues[0].location.latitude, 
+                        lng: item._embedded.venues[0].location.longitude}} 
+                    />
+                );
+              })}
             </Map>
           </div>
 
           <div className="bottom">
             <List
-                list={this.state.list}
+                list={this.props.list}
             />         
           </div>
-
-          
-          
         </div>
-        }
       </div>
     );
   }

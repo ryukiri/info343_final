@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 
 import './App.css';
 import FullScreenDialog from './FullScreenDialog.js'
-import Map from './Map.js';
+import Map from './Map.jsx';
 import Search from './Search'; 
 import AliCard from './AliCard'; 
 import AustinCard from './AustinCard'; 
 import MichelleCard from './MichelleCard'; 
+import List from './List';
 
 var STORAGE_KEY = 'locationList';
 
@@ -15,16 +16,16 @@ var API_KEY = 'HZvSWXD4M5MuKkSD4TVPl3GRKCuUpQIW';
 var events;
 var changeInfoError = document.getElementById('change-error');
 
-//const AnyReactComponent = ({ text }) => <div>{text}</div>;
+// error message for invalid location search 
 function changeError(message) {
     changeInfoError.textContent = message;
     changeInfoError.classList.add('active');
   }
   
-  function clearChangeError() {
+function clearChangeError() {
     changeInfoError.textContent = "";
     changeInfoError.classList.remove('active');
-  }
+}
 
 class App extends Component {
 
@@ -44,10 +45,6 @@ class App extends Component {
             list: savedListArray
         });
     }
-    
-    handleClick() {
-        ReactDOM.render(<Map />, document.getElementById('root'));
-    }
 
     render() {
         return (
@@ -60,18 +57,33 @@ class App extends Component {
                                 <a className="navLink" href="#" className="brand-logo">Bored</a>
                             </div>
                         </nav>
-                    
+
                         <div className="card container mainbox">
                             <Search className="locationForm"
-                                 onFormSubmit={(item) => {
-                                     this.handleFormSubmit(item);
-                                     this.state = {
+                                list = {this.state.list}
+                                
+                                onFormSubmit={(item) => {
+                                    this.handleFormSubmit(item);
+                                    this.state = {
                                         list: []
-                                     };
-                                 }}
-                             />
-                        <div id="change-error" className="alert alert-danger" role="alert"></div>
+                                    };
+                                }}
+                            />
+                            <div id="change-error" className="alert alert-danger" role="alert"></div>
                         </div>    
+
+                         <div className="card container">
+                             {this.state.eventID && (
+                                <Map 
+                                    className="card map" 
+                                    eventName= {this.state.eventName}
+                                    eventURL= {this.state.eventURL}
+                                    events= {this.state.events}
+                                    eventID= {this.state.eventID}
+                                    list= {this.state.list}
+                                />
+                             )}
+                        </div> 
                     </div>
 
                     <div className="container topCards">
@@ -165,8 +177,8 @@ class App extends Component {
                 } else {
                     changeInfoError = document.getElementById('change-error');
                     clearChangeError();
+                    
                     events = json._embedded.events;
-                
                     var event = events[0];
                     var eventID = event.id;
                     var eventName = event.name;
@@ -188,19 +200,19 @@ class App extends Component {
                         eventName: eventName,
                         eventURL: eventURL,
                         events: events,
-                        eventID, eventID,
+                        eventID: eventID,
                         list: existingList
                     });
 
-                    this.handleClick();
+        
+                    // this.handleClick();
                 }
             })
-        }   
+        }    
         
         handleFormSubmit(item) {
             this.fetchEvents(item);
         }
-
 }
 
 export default App;
