@@ -73,7 +73,7 @@ class App extends Component {
                     <div className="mapBack">
                         <div className="card container mapArea">
                             {this.state.eventID && (
-                                <Map 
+                                <Map
                                     className="card map" 
                                     eventName= {this.state.eventName}
                                     eventURL= {this.state.eventURL}
@@ -148,6 +148,7 @@ class App extends Component {
                     clearChangeError();
                     
                     events = json._embedded.events;
+                    console.log(events[0].classifications[0].genre.name);
                     var event = events[0];
                     var eventID = event.id;
                     var eventName = event.name;
