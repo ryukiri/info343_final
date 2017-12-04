@@ -86,45 +86,6 @@ class App extends Component {
                         </div> 
                     </div>
 
-                    <div className="container topCards">
-                        <h3>Find Top Attractions Nearby</h3>
-
-                        <div className="row">
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
-                                </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    
-
                     <div className="container row devCards">
                         <h3>Meet the Team</h3>
                         <div className="col-md-4">
@@ -148,7 +109,6 @@ class App extends Component {
                             <ul className="mdl-mini-footer__link-list">
                                 <li><a href="#">Help</a></li>
                                 <li><a href="#">Privacy & Terms</a></li>
-                                <li><a><FullScreenDialog/></a></li>
                             </ul>
                         </div>
                     </footer>
@@ -171,7 +131,6 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                console.log(json);
                 if(json.page.totalElements == 0) {
                     changeInfoError = document.getElementById('change-error');
                     console.log(changeInfoError);

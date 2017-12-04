@@ -24,6 +24,7 @@ class SimpleMap extends Component {
 
   componentDidMount(){
     if (this.props.list[0]) {
+      console.log(this.props.list[0])
       initLatitude = this.props.list[0]._embedded.venues[0].location.latitude;
       initLongitude = this.props.list[0]._embedded.venues[0].location.longitude;
     }
@@ -44,6 +45,7 @@ class SimpleMap extends Component {
               zoom={12}
               onClick={this.onMapClicked}
             >
+            {this.componentDidMount()}
               {this.props.list.map((item) => {
                 return (
                     <Marker
