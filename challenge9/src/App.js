@@ -131,8 +131,10 @@ class App extends Component {
         var url;
         if (isNaN(query)) {
             url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=' + query + '&apikey=' + API_KEY;            
+            console.log(url);
         } else{
             url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&postalCode=' + query + '&apikey=' + API_KEY;
+            console.log(url);
         }
 
         fetch(url)
@@ -149,6 +151,7 @@ class App extends Component {
                     
                     events = json._embedded.events;
                     console.log(events[0].classifications[0].genre.name);
+                    console.log(events);
                     var event = events[0];
                     var eventID = event.id;
                     var eventName = event.name;
