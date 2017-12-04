@@ -9,7 +9,6 @@ import AliCard from './AliCard';
 import AustinCard from './AustinCard'; 
 import MichelleCard from './MichelleCard'; 
 import List from './List';
-import MapClick from './MapClick';
 
 var STORAGE_KEY = 'locationList';
 
