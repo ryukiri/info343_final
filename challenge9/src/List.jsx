@@ -23,7 +23,7 @@ class List extends React.Component {
                                 return (
                                     <li className="list-group-item mdl-list__item listItems" key={index}>
                                             <span className="mdl-list__item-primary-content">
-                                                <a onClick={(e) => {
+                                                <a className="listText" onClick={(e) => {
                                                     e.preventDefault();
                                                     this.details(item.url);
 
