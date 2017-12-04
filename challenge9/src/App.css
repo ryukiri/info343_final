@@ -80,6 +80,11 @@ h3 {
     width: 100%;
 }
 
+button {
+    background-color: white; 
+    border-color: white;  
+}
+
 .container.topCards {
     margin-top: 0px;
     padding-bottom: 50px;
