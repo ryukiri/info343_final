@@ -22,7 +22,7 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="michelle.jpg"
           title="Michelle Chen"
         />
         <CardContent>
@@ -30,8 +30,7 @@ function SimpleMediaCard(props) {
             Michelle Chen
           </Typography>
           <Typography component="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 
-            Duis fringilla ipsum dolor, sit amet consequat ex placerat a. Sed ultricies sem sit amet lobortis dignissim.
+            Michelle is a senior studying at the University of Washington pursuing a double degree in Informatics and Business. This quarter she is studying client-side web development in Jason Nutter's INFO 343 class. Outside of academics Michelle enjoys going on runs, spending time with family and friends, and traveling. 
           </Typography>
         </CardContent>
       </Card>

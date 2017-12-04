@@ -1,10 +1,17 @@
 body, html {
     height: 100%;
     margin: 0;
+} 
+
+h2 {
+    text-align: center; 
 }
 
 h3 {
-    text-align: center;
+    text-align: center; 
+    color: white; 
+    margin-top: 0px; 
+    margin-bottom: 20px; 
 }
 
 #root {
@@ -83,10 +90,14 @@ h3 {
 button {
     background-color: white; 
     border-color: white;  
+} 
+
+.material-icons {
+    color: purple; 
 }
 
 .container.topCards {
-    margin-top: 0px;
+    margin-top: 200px; 
     padding-bottom: 50px;
     padding-left: 20%;
     padding-right: 20%;
@@ -100,9 +111,13 @@ button {
 
 .devCards {
     margin: 0 auto;
-    background-color: #B2EBF2;
+    background-color: purple; 
     width: 100%;
     padding: 50px;
+} 
+
+.MuiTypography-root-33.MuiTypography-body1-42 {
+    font-size: 1.2rem; 
 }
 
 .demo-list-item {
@@ -158,7 +173,7 @@ div.card.container {
 
 dialog.mdl-dialog {
     width: 60%;
-}
+} 
 
 .listText {
     color: black;
@@ -172,7 +187,7 @@ dialog.mdl-dialog {
     }
 
     .container.topCards {
-        margin-top: 150px;
+        margin-top: 200px;
         padding-bottom: 50px;
     }
 

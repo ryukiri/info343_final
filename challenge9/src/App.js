@@ -70,7 +70,7 @@ class App extends Component {
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
                         </div>
 
-                         <div className="card container">
+                         <div className="container">
 
                              {this.state.eventID ? (
                                 <Map 
@@ -84,9 +84,9 @@ class App extends Component {
                              ) : (
                                 <div>
                                     <div className="container topCards">
-                                        <h3>About</h3>
+                                        <h2>About</h2>
                                         <p>
-                                            Ever find yourself wihtout something to do? You and your squad tired of sitting around watching
+                                            Ever find yourself without something to do? You and your squad tired of sitting around watching
                                             Netflix all weekend? Are you bored? Well, now with our app, you'll never be bored again! Introducing
                                             Bored: the best way to search for events and activities near you! Simply type in your location, and 
                                             a list of events will appear. 
