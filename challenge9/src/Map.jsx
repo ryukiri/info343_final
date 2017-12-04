@@ -3,8 +3,6 @@ import List from './List';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './App.css';
 
-var indents = [];
-
 const style = {
   width: '65%',
   height: '100%',

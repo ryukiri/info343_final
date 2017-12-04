@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import './App.css';
-import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.jsx';
 import Search from './Search'; 
 import AliCard from './AliCard'; 
@@ -54,7 +52,7 @@ class App extends Component {
                     <div className="top">
                         <nav>
                             <div className="nav-wrapper container">
-                                <a className="navLink" href="#" className="brand-logo">Bored</a>
+                                <a className="navLink" href="index.html" className="brand-logo">Bored</a>
                             </div>
                         </nav>
 
@@ -89,17 +87,28 @@ class App extends Component {
                         </div> 
                     </div>
 
+                    <div className="container topCards">
+                        <h3>About</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel efficitur velit, quis placerat libero. Nam laoreet lectus mauris, pharetra hendrerit ligula scelerisque non. Proin nec sodales justo, id dictum felis. Suspendisse euismod sed lectus non sagittis. Praesent vel lacinia arcu, faucibus aliquet nisi. Nullam ut neque venenatis, fermentum nulla eget, condimentum urna. Vivamus condimentum, ipsum eget imperdiet lacinia, urna ipsum aliquet lorem, et consequat est lacus sed libero. Quisque sit amet posuere nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In a mollis mauris. Curabitur vel arcu velit.
+                        </p>
+                        
+                        <p>
+                            Morbi semper nulla vitae fringilla pellentesque. In hac habitasse platea dictumst. Morbi aliquet vel metus non commodo. In facilisis nunc et ultricies tempor. Vivamus placerat diam elit, vel volutpat nibh malesuada sed. Cras at ornare nunc, in imperdiet mauris. Nulla at sapien mi.
+                        </p>
+                    </div>
+
                     <div className="container row devCards">
                         <h3>Meet the Team</h3>
-                        <div className="col-md-4">
+                        <div className="col-md-4 singleDevCard">
                             <AliCard/>
                         </div>
 
-                        <div className="col-md-4">
+                        <div className="col-md-4 singleDevCard">
                             <AustinCard/>
                         </div>
 
-                        <div className="col-md-4">
+                        <div className="col-md-4 singleDevCard">
                             <MichelleCard/>
                         </div>
                     </div>
@@ -109,10 +118,6 @@ class App extends Component {
                             <div className="mdl-logo">
                                 &copy; 2017 Bored Inc.
                             </div>
-                            <ul className="mdl-mini-footer__link-list">
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Privacy & Terms</a></li>
-                            </ul>
                         </div>
                     </footer>
                 </div>
@@ -134,7 +139,7 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                if(json.page.totalElements == 0) {
+                if(json.page.totalElements === 0) {
                     changeInfoError = document.getElementById('change-error');
                     changeError("Invalid city (or there are no events near here)");
                 } else {
