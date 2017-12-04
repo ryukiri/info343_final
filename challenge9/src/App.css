@@ -9,7 +9,7 @@ h3 {
 
 #root {
     /* The image used */
-    background-image: url("https://odysseyonline-img.rbl.ms/simage/https%3A%2F%2Faz616578.vo.msecnd.net%2Ffiles%2F2016%2F06%2F26%2F636025106013172973-1928262337_para1.jpg/2000%2C2000/6ZQP0QQsjJyd%2Fn2w/img.jpg");
+    background-image: url("https://villagemedia.blob.core.windows.net/files/guelphtoday/images/stock-images/concert.jpg");
 
     /* Full height */
     height: 500px;
@@ -21,6 +21,10 @@ h3 {
     float: left;
     width: 100%;
 }
+
+.navBar {
+    background-color: purple; 
+} 
 
 .navLink {
     font-size: 1em;
@@ -101,8 +105,8 @@ h3 {
 }
 
 li.list-group-item.mdl-list__item.listItems:hover {
-    background-color: #F2F2F2;
-}
+    background-color: #EE82EE; 
+} 
 
 .alert-danger {
     display: none;

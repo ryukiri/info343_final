@@ -50,7 +50,7 @@ class App extends Component {
                 {/* Your app content goes here */
                 <div className="maindiv">
                     <div className="top">
-                        <nav>
+                        <nav className="navBar">
                             <div className="nav-wrapper container">
                                 <a className="navLink" href="index.html" className="brand-logo">Bored</a>
                             </div>

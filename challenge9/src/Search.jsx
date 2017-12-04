@@ -15,7 +15,7 @@ class Search extends Component {
                         <label className="mdl-textfield__label" htmlFor="sample3">Search</label>
                     </div>
                     <a>
-                        <button type="submit"><i className="material-icons">send</i></button>
+                        <button className= "searchButton" type="submit"><i className="material-icons">send</i></button>
                     </a>
                 </form>
             </div>
