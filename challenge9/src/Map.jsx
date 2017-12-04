@@ -26,6 +26,7 @@ class SimpleMap extends Component {
        showingInfoWindow: true,
        name: this.state.list.event
      })
+     console.log();
    }
 
   render() {
@@ -43,6 +44,15 @@ class SimpleMap extends Component {
               zoom={12}
               onClick={this.onMapClicked}
             >
+
+            <InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}>
+                <div>
+                  <h1>{this.state.list.event}</h1>
+                </div>
+            </InfoWindow>
+
               {this.props.list.map((item) => {
                 return (
                     <Marker
@@ -63,18 +73,6 @@ class SimpleMap extends Component {
             <List
                 list={this.props.list}
             />         
-          </div>
-
-          <div className= "info-pop"  onMarkerClick={(e) => {
-                           this.onMarkerClick(e)
-                         }} >
-             <InfoWindow
-                marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}>
-                <div>
-                  <h1>{this.state.list.event}</h1>
-                </div>
-            </InfoWindow>
           </div>
 
         </div>
