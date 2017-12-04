@@ -92,11 +92,10 @@ class App extends Component {
                     <div className="container topCards">
                         <h3>About</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel efficitur velit, quis placerat libero. Nam laoreet lectus mauris, pharetra hendrerit ligula scelerisque non. Proin nec sodales justo, id dictum felis. Suspendisse euismod sed lectus non sagittis. Praesent vel lacinia arcu, faucibus aliquet nisi. Nullam ut neque venenatis, fermentum nulla eget, condimentum urna. Vivamus condimentum, ipsum eget imperdiet lacinia, urna ipsum aliquet lorem, et consequat est lacus sed libero. Quisque sit amet posuere nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In a mollis mauris. Curabitur vel arcu velit.
-                        </p>
-                        
-                        <p>
-                            Morbi semper nulla vitae fringilla pellentesque. In hac habitasse platea dictumst. Morbi aliquet vel metus non commodo. In facilisis nunc et ultricies tempor. Vivamus placerat diam elit, vel volutpat nibh malesuada sed. Cras at ornare nunc, in imperdiet mauris. Nulla at sapien mi.
+                            Ever find yourself wihtout something to do? You and your squad tired of sitting around watching
+                            Netflix all weekend? Are you bored? Well, now with our app, you'll never be bored again! Introducing
+                            Bored: the best way to search for events and activities near you! Simply type in your location, and 
+                            a list of events will appear. 
                         </p>
                     </div>
 

@@ -79,6 +79,8 @@ h3 {
 .container.topCards {
     margin-top: 50px;
     padding-bottom: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 .attractionCard {
