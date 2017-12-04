@@ -110,6 +110,10 @@ li.list-group-item.mdl-list__item.listItems:hover {
     overflow: hidden;
 }
 
+div.card.container {
+    margin-top: 200px; 
+} 
+
 dialog.mdl-dialog {
     width: 60%;
 }

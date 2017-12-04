@@ -73,7 +73,7 @@ class App extends Component {
                         </div>    
 
                          <div className="card container">
-                             {this.state.eventID && (
+                             {/* {this.state.eventID && (
                                 <Map 
                                     className="card map" 
                                     eventName= {this.state.eventName}
@@ -82,62 +82,76 @@ class App extends Component {
                                     eventID= {this.state.eventID}
                                     list= {this.state.list}
                                 />
-                             )}
+                             )} */}
+
+                             {this.state.eventID ? (
+                                <Map 
+                                    className="card map" 
+                                    eventName= {this.state.eventName}
+                                    eventURL= {this.state.eventURL}
+                                    events= {this.state.events}
+                                    eventID= {this.state.eventID}
+                                    list= {this.state.list}
+                                />
+                             ) : (
+                                <div>
+                                <div className="container topCards">
+                                    <h3>Find Top Attractions Nearby</h3>
+
+                                    <div className="row">
+                                        <div className="col-xs-6 col-md-4">
+                                            <div className="card attractionCard">
+                                                I'm a card!
+                                            </div>
+                                            </div>
+                                            <div className="col-xs-6 col-md-4">
+                                                <div className="card attractionCard">
+                                                    I'm a card!
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-6 col-md-4">
+                                                <div className="card attractionCard">
+                                                    I'm a card!
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-6 col-md-4">
+                                                <div className="card attractionCard">
+                                                    I'm a card!
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-6 col-md-4">
+                                                <div className="card attractionCard">
+                                                    I'm a card!
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-6 col-md-4">
+                                                <div className="card attractionCard">
+                                                    I'm a card!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="container row devCards">
+                                        <h3>Meet the Team</h3>
+                                        <div className="col-md-4">
+                                            <AliCard/>
+                                        </div>
+
+                                        <div className="col-md-4">
+                                            <AustinCard/>
+                                        </div>
+
+                                        <div className="col-md-4">
+                                            <MichelleCard/>
+                                        </div>
+                                    </div>
+                                 </div>
+                             )
+                            }
                         </div> 
                     </div>
 
-                    <div className="container topCards">
-                        <h3>Find Top Attractions Nearby</h3>
-
-                        <div className="row">
-                            <div className="col-xs-6 col-md-4">
-                                <div className="card attractionCard">
-                                    I'm a card!
-                                </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-md-4">
-                                    <div className="card attractionCard">
-                                        I'm a card!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    <div className="container row devCards">
-                        <h3>Meet the Team</h3>
-                        <div className="col-md-4">
-                            <AliCard/>
-                        </div>
-
-                        <div className="col-md-4">
-                            <AustinCard/>
-                        </div>
-
-                        <div className="col-md-4">
-                            <MichelleCard/>
-                        </div>
-                    </div>
-         
                     <footer className="mdl-mini-footer">
                         <div className="mdl-mini-footer__left-section">
                             <div className="mdl-logo">
@@ -183,11 +197,7 @@ class App extends Component {
                     var eventID = event.id;
                     var eventName = event.name;
                     var eventURL = event.url;
-                    /*console.log(eventID);
-                    console.log(eventName);
-                    console.log(eventURL);
-                    console.log(events);*/
-
+                    
                     var existingList = this.state.list;
 
                     for(var i = 0; i < events.length; i++) {
@@ -203,9 +213,6 @@ class App extends Component {
                         eventID: eventID,
                         list: existingList
                     });
-
-        
-                    // this.handleClick();
                 }
             })
         }    
