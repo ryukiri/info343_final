@@ -9,6 +9,7 @@ import AliCard from './AliCard';
 import AustinCard from './AustinCard'; 
 import MichelleCard from './MichelleCard'; 
 import List from './List';
+import MapClick from './MapClick';
 
 var STORAGE_KEY = 'locationList';
 
@@ -70,10 +71,10 @@ class App extends Component {
                                 }}
                             />
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
-                        </div>    
+                        </div>
 
-                         <div className="card container">
-                             {this.state.eventID && (
+                        <div className="card container mapArea">
+                            {this.state.eventID && (
                                 <Map 
                                     className="card map" 
                                     eventName= {this.state.eventName}
@@ -82,7 +83,7 @@ class App extends Component {
                                     eventID= {this.state.eventID}
                                     list= {this.state.list}
                                 />
-                             )}
+                            )}
                         </div> 
                     </div>
 
@@ -122,6 +123,8 @@ class App extends Component {
                                 </div>
                             </div>
                         </div>
+
+                    
 
                     <div className="container row devCards">
                         <h3>Meet the Team</h3>
@@ -183,11 +186,6 @@ class App extends Component {
                     var eventID = event.id;
                     var eventName = event.name;
                     var eventURL = event.url;
-                    /*console.log(eventID);
-                    console.log(eventName);
-                    console.log(eventURL);
-                    console.log(events);*/
-
                     var existingList = this.state.list;
 
                     for(var i = 0; i < events.length; i++) {
@@ -203,9 +201,6 @@ class App extends Component {
                         eventID: eventID,
                         list: existingList
                     });
-
-        
-                    // this.handleClick();
                 }
             })
         }    

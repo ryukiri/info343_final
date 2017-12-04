@@ -46,8 +46,12 @@ h3 {
     margin-right: 5px;
 }
 
-.container.topCards {
+.mapArea {
     margin-top: 150px;
+}
+
+.container.topCards {
+    margin-top: 50px;
 }
 
 .attractionCard {
