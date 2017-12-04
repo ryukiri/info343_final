@@ -70,50 +70,49 @@ class App extends Component {
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
                         </div>
 
-                    <div className="mapBack">
-                        <div className="card container mapArea">
-                            {this.state.eventID && (
-                                <Map
+                         <div className="card container">
+
+                             {this.state.eventID ? (
+                                <Map 
                                     className="card map" 
                                     eventName= {this.state.eventName}
                                     eventURL= {this.state.eventURL}
                                     events= {this.state.events}
                                     eventID= {this.state.eventID}
-                                    center= {{
-                                        lat: this.state.list[0]._embedded.venues[0].location.latitude,
-                                        lng: this.state.list[0]._embedded.venues[0].location.longitude}}
                                     list= {this.state.list}
                                 />
-                            )}
+                             ) : (
+                                <div>
+                                    <div className="container topCards">
+                                        <h3>About</h3>
+                                        <p>
+                                            Ever find yourself wihtout something to do? You and your squad tired of sitting around watching
+                                            Netflix all weekend? Are you bored? Well, now with our app, you'll never be bored again! Introducing
+                                            Bored: the best way to search for events and activities near you! Simply type in your location, and 
+                                            a list of events will appear. 
+                                        </p>
+                                    </div>
+
+                                    <div className="container row devCards">
+                                        <h3>Meet the Team</h3>
+                                        <div className="col-md-4">
+                                            <AliCard/>
+                                        </div>
+
+                                        <div className="col-md-4">
+                                            <AustinCard/>
+                                        </div>
+
+                                        <div className="col-md-4">
+                                            <MichelleCard/>
+                                        </div>
+                                    </div>
+                                 </div>
+                             )
+                            }
                         </div> 
                     </div>
-                </div>
 
-                    <div className="container topCards">
-                        <h3>About</h3>
-                        <p>
-                            Ever find yourself wihtout something to do? You and your squad tired of sitting around watching
-                            Netflix all weekend? Are you bored? Well, now with our app, you'll never be bored again! Introducing
-                            Bored: the best way to search for events and activities near you! Simply type in your location, and 
-                            a list of events will appear. 
-                        </p>
-                    </div>
-
-                    <div className="container row devCards">
-                        <h3>Meet the Team</h3>
-                        <div className="col-md-4 singleDevCard">
-                            <AliCard/>
-                        </div>
-
-                        <div className="col-md-4 singleDevCard">
-                            <AustinCard/>
-                        </div>
-
-                        <div className="col-md-4 singleDevCard">
-                            <MichelleCard/>
-                        </div>
-                    </div>
-         
                     <footer className="mdl-mini-footer">
                         <div className="mdl-mini-footer__left-section">
                             <div className="mdl-logo">
@@ -156,6 +155,7 @@ class App extends Component {
                     var eventID = event.id;
                     var eventName = event.name;
                     var eventURL = event.url;
+                    
                     var existingList = this.state.list;
 
                     for(var i = 0; i < events.length; i++) {
@@ -171,11 +171,6 @@ class App extends Component {
                         eventID: eventID,
                         list: existingList
                     });
-
-                    var mainBox = document.getElementById('mainbox');
-                    var root = document.getElementById('root');
-                    mainBox.classList.add('searched');
-                    root.classList.add('searched');
                 }
             })
         }    
