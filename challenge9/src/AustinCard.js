@@ -22,12 +22,12 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image="https://goo.gl/etfRax"
+          title="Austin Quach"
         />
         <CardContent>
           <Typography type="headline" component="h2">
-            Austin Quach
+              Austin Quach
           </Typography>
           <Typography component="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 

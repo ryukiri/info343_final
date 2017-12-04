@@ -2,11 +2,6 @@ import React from 'react';
 
 class List extends React.Component {
     details(URL) {
-       /*window.open(
-            URL,
-            '_blank'
-        );*/
-    
         var dialog = document.querySelector('dialog');
         dialog.showModal();
         dialog.querySelector('.close').addEventListener('click', function() {
@@ -31,11 +26,6 @@ class List extends React.Component {
                                                 <a onClick={(e) => {
                                                     e.preventDefault();
                                                     this.details(item.url);
-                                                    console.log("Dates: " + item.dates.start.localDate);
-                                                    console.log("Info: " + item.info);
-                                                    console.log("Min Price: " + item.priceRanges[0].min);
-                                                    console.log("Max Price: " + item.priceRanges[0].max);
-                                                    
 
                                                     var title = document.getElementsByClassName('mdl-dialog__title');
                                                     title[0].textContent = item.name;
@@ -51,8 +41,6 @@ class List extends React.Component {
 
                                                     var eventInfo = document.getElementsByClassName('EventInfo');
                                                     eventInfo[0].textContent = item.info;
-                                                    
-
                                                 }}>
                                                     {item.name}
                                                 </a>

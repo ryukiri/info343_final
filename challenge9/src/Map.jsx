@@ -3,10 +3,6 @@ import List from './List';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './App.css';
 
-var initLatitude;
-var initLongitude;
-var indents = [];
-
 const style = {
   width: '65%',
   height: '100%',
@@ -22,15 +18,7 @@ class SimpleMap extends Component {
     };
   }
 
-  componentDidMount(){
-    if (this.props.list[0]) {
-      initLatitude = this.props.list[0]._embedded.venues[0].location.latitude;
-      initLongitude = this.props.list[0]._embedded.venues[0].location.longitude;
-    }
-  }
-
   render() {
-
     return (  
       <div>
         <div className="mapMain">
@@ -39,8 +27,8 @@ class SimpleMap extends Component {
               google={this.props.google}
               style={style}
               center={{
-                lat: initLatitude,
-                lng: initLongitude
+                lat: this.props.list[0]._embedded.venues[0].location.latitude,
+                lng: this.props.list[0]._embedded.venues[0].location.longitude
               }}
               zoom={12}
               onClick={this.onMapClicked}

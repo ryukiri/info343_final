@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import './App.css';
-import FullScreenDialog from './FullScreenDialog.js'
 import Map from './Map.jsx';
 import Search from './Search'; 
 import AliCard from './AliCard'; 
@@ -54,11 +52,11 @@ class App extends Component {
                     <div className="top">
                         <nav>
                             <div className="nav-wrapper container">
-                                <a className="navLink" href="#" className="brand-logo">Bored</a>
+                                <a className="navLink" href="index.html" className="brand-logo">Bored</a>
                             </div>
                         </nav>
 
-                        <div className="card container mainbox">
+                        <div className="card container mainbox" id="mainbox">
                             <Search className="locationForm"
                                 list = {this.state.list}
                                 
@@ -70,19 +68,9 @@ class App extends Component {
                                 }}
                             />
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
-                        </div>    
+                        </div>
 
                          <div className="card container">
-                             {/* {this.state.eventID && (
-                                <Map 
-                                    className="card map" 
-                                    eventName= {this.state.eventName}
-                                    eventURL= {this.state.eventURL}
-                                    events= {this.state.events}
-                                    eventID= {this.state.eventID}
-                                    list= {this.state.list}
-                                />
-                             )} */}
 
                              {this.state.eventID ? (
                                 <Map 
@@ -95,41 +83,14 @@ class App extends Component {
                                 />
                              ) : (
                                 <div>
-                                <div className="container topCards">
-                                    <h3>Find Top Attractions Nearby</h3>
-
-                                    <div className="row">
-                                        <div className="col-xs-6 col-md-4">
-                                            <div className="card attractionCard">
-                                                I'm a card!
-                                            </div>
-                                            </div>
-                                            <div className="col-xs-6 col-md-4">
-                                                <div className="card attractionCard">
-                                                    I'm a card!
-                                                </div>
-                                            </div>
-                                            <div className="col-xs-6 col-md-4">
-                                                <div className="card attractionCard">
-                                                    I'm a card!
-                                                </div>
-                                            </div>
-                                            <div className="col-xs-6 col-md-4">
-                                                <div className="card attractionCard">
-                                                    I'm a card!
-                                                </div>
-                                            </div>
-                                            <div className="col-xs-6 col-md-4">
-                                                <div className="card attractionCard">
-                                                    I'm a card!
-                                                </div>
-                                            </div>
-                                            <div className="col-xs-6 col-md-4">
-                                                <div className="card attractionCard">
-                                                    I'm a card!
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div className="container topCards">
+                                        <h3>About</h3>
+                                        <p>
+                                            Ever find yourself wihtout something to do? You and your squad tired of sitting around watching
+                                            Netflix all weekend? Are you bored? Well, now with our app, you'll never be bored again! Introducing
+                                            Bored: the best way to search for events and activities near you! Simply type in your location, and 
+                                            a list of events will appear. 
+                                        </p>
                                     </div>
 
                                     <div className="container row devCards">
@@ -157,11 +118,6 @@ class App extends Component {
                             <div className="mdl-logo">
                                 &copy; 2017 Bored Inc.
                             </div>
-                            <ul className="mdl-mini-footer__link-list">
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Privacy & Terms</a></li>
-                                <li><a><FullScreenDialog/></a></li>
-                            </ul>
                         </div>
                     </footer>
                 </div>
@@ -174,8 +130,10 @@ class App extends Component {
         var url;
         if (isNaN(query)) {
             url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=' + query + '&apikey=' + API_KEY;            
+            console.log(url);
         } else{
             url = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&postalCode=' + query + '&apikey=' + API_KEY;
+            console.log(url);
         }
 
         fetch(url)
@@ -183,16 +141,16 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                console.log(json);
-                if(json.page.totalElements == 0) {
+                if(json.page.totalElements === 0) {
                     changeInfoError = document.getElementById('change-error');
-                    console.log(changeInfoError);
                     changeError("Invalid city (or there are no events near here)");
                 } else {
                     changeInfoError = document.getElementById('change-error');
                     clearChangeError();
                     
                     events = json._embedded.events;
+                    console.log(events[0].classifications[0].genre.name);
+                    console.log(events);
                     var event = events[0];
                     var eventID = event.id;
                     var eventName = event.name;
