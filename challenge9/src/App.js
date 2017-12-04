@@ -70,6 +70,7 @@ class App extends Component {
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
                         </div>
 
+                    <div className="mapBack">
                         <div className="card container mapArea">
                             {this.state.eventID && (
                                 <Map 
@@ -86,6 +87,7 @@ class App extends Component {
                             )}
                         </div> 
                     </div>
+                </div>
 
                     <div className="container topCards">
                         <h3>About</h3>
