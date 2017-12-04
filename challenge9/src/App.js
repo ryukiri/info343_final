@@ -58,7 +58,7 @@ class App extends Component {
                             </div>
                         </nav>
 
-                        <div className="card container mainbox">
+                        <div className="card container mainbox" id="mainbox">
                             <Search className="locationForm"
                                 list = {this.state.list}
                                 
@@ -80,6 +80,9 @@ class App extends Component {
                                     eventURL= {this.state.eventURL}
                                     events= {this.state.events}
                                     eventID= {this.state.eventID}
+                                    center= {{
+                                        lat: this.state.list[0]._embedded.venues[0].location.latitude,
+                                        lng: this.state.list[0]._embedded.venues[0].location.longitude}}
                                     list= {this.state.list}
                                 />
                             )}
@@ -133,7 +136,6 @@ class App extends Component {
             .then((json) => {
                 if(json.page.totalElements == 0) {
                     changeInfoError = document.getElementById('change-error');
-                    console.log(changeInfoError);
                     changeError("Invalid city (or there are no events near here)");
                 } else {
                     changeInfoError = document.getElementById('change-error');
@@ -159,6 +161,11 @@ class App extends Component {
                         eventID: eventID,
                         list: existingList
                     });
+
+                    var mainBox = document.getElementById('mainbox');
+                    var root = document.getElementById('root');
+                    mainBox.classList.add('searched');
+                    root.classList.add('searched');
                 }
             })
         }    
