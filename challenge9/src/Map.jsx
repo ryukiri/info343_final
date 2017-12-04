@@ -44,15 +44,14 @@ class SimpleMap extends Component {
               zoom={12}
               onClick={this.onMapClicked}
             >
-
             <InfoWindow
-                marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}>
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}>
                 <div>
                   <h1>{this.state.list.event}</h1>
                 </div>
-            </InfoWindow>
-
+             </InfoWindow>
+             
               {this.props.list.map((item) => {
                 return (
                     <Marker
@@ -74,6 +73,7 @@ class SimpleMap extends Component {
                 list={this.props.list}
             />         
           </div>
+
 
         </div>
       </div>
