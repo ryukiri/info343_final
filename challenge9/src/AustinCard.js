@@ -22,16 +22,18 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image="https://goo.gl/etfRax"
+          title="Austin Quach"
         />
         <CardContent>
           <Typography type="headline" component="h2">
-            Austin Quach
+              Austin Quach
           </Typography>
           <Typography component="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 
-            Duis fringilla ipsum dolor, sit amet consequat ex placerat a. Sed ultricies sem sit amet lobortis dignissim.
+            Austin is a junior at the University of Washington pursuing a degree in tech. 
+            He is also a 3rd year member of the Husky Marching Band. Been playing music since
+            first grade, he is quite experienced in piano, viola, violin, flute, and piccolo. Some hobbies include
+            basketball, jogging, baking, and photography. 
           </Typography>
         </CardContent>
       </Card>

@@ -22,7 +22,7 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="ali.jpg"
           title="Ali Rafiq"
         />
         <CardContent>
@@ -30,8 +30,9 @@ function SimpleMediaCard(props) {
             Ali Rafiq
           </Typography>
           <Typography component="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 
-            Duis fringilla ipsum dolor, sit amet consequat ex placerat a. Sed ultricies sem sit amet lobortis dignissim.
+            Ali Rafiq is a junior at the University of Washington. He is an Informatics major trying to do software development.
+            Ali enjoys long hikes, playing video games and working out with his friends. He also has 9 chickens, 2 ducks, 2 bunnies and cat 
+            at his house. I love cookies. I like milkshakes. I love the chicken noodle. I have a level 20 Guardian in Destiny 2.
           </Typography>
         </CardContent>
       </Card>

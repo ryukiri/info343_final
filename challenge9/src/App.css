@@ -1,15 +1,22 @@
 body, html {
     height: 100%;
     margin: 0;
+} 
+
+h2 {
+    text-align: center; 
 }
 
 h3 {
-    text-align: center;
+    text-align: center; 
+    color: white; 
+    margin-top: 0px; 
+    margin-bottom: 20px; 
 }
 
 #root {
     /* The image used */
-    background-image: url("gmaps.png");
+    background-image: url("https://villagemedia.blob.core.windows.net/files/guelphtoday/images/stock-images/concert.jpg");
 
     /* Full height */
     height: 500px;
@@ -21,6 +28,10 @@ h3 {
     float: left;
     width: 100%;
 }
+
+.navBar {
+    background-color: purple; 
+} 
 
 .navLink {
     font-size: 1em;
@@ -38,6 +49,27 @@ h3 {
     margin-top: 250px;
 }
 
+div#mainbox.card.container.mainbox.searched {
+    max-width: 400px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+#root.searched {
+    /* The image used */
+    background-image: url("https://villagemedia.blob.core.windows.net/files/guelphtoday/images/stock-images/concert.jpg");
+
+    /* Full height */
+    height: 200px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    width: 100%;
+}
+
 .locationForm {
     display: inline;
 }
@@ -46,18 +78,46 @@ h3 {
     margin-right: 5px;
 }
 
+.mapArea {
+    margin-top: 100px; 
+}
+
+.mapBack {
+    background-color: #84FFFF;
+    width: 100%;
+}
+
+button {
+    background-color: white; 
+    border-color: white;  
+} 
+
+.material-icons {
+    color: purple; 
+}
+
 .container.topCards {
-    margin-top: 150px;
+    margin-top: 200px; 
+    padding-bottom: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 .attractionCard {
     width: 250px;
     height: 150px;
-    padding: 20px;
+    padding: 20px; 
 }
 
 .devCards {
-    margin: 50px;
+    margin: 0 auto;
+    background-color: purple; 
+    width: 100%;
+    padding: 50px;
+} 
+
+.MuiTypography-root-33.MuiTypography-body1-42 {
+    font-size: 1.2rem; 
 }
 
 .demo-list-item {
@@ -65,8 +125,8 @@ h3 {
 }
 
 li.list-group-item.mdl-list__item.listItems:hover {
-    background-color: #F2F2F2;
-}
+    background-color: #EE82EE; 
+} 
 
 .alert-danger {
     display: none;
@@ -105,16 +165,41 @@ li.list-group-item.mdl-list__item.listItems:hover {
 .mapMain {
     height:100vh;
     overflow: hidden;
+    padding-top: 25px;
+    margin-bottom: 50px; 
+    margin-top: 50px; 
+} 
+
+div.card.container {
+    margin-top: 200px; 
+} 
+
+dialog.mdl-dialog {
+    width: 60%;
+} 
+
+.listText {
+    color: black;
+} 
+
+#sample3 {
+    font-size: 16px; 
 }
 
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {
         margin-top: 150px;
+        min-width: 400px;
     }
 
-    .topCards {
+    .container.topCards {
         margin-top: 200px;
+        padding-bottom: 50px;
+    }
+
+    .singleDevCard {
+        padding-bottom: 50px;
     }
 }
 a,.mdl-accordion,.mdl-button,.mdl-card,.mdl-checkbox,.mdl-dropdown-menu,.mdl-icon-toggle,.mdl-item,.mdl-radio,.mdl-slider,.mdl-switch,.mdl-tabs__tab{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}

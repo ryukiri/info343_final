@@ -11,11 +11,11 @@ class Search extends Component {
                 >
                     <i className="material-icons">search</i>
                     <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input ref="inputBox" className="mdl-textfield__input" type="text" id="sample3"/>
+                        <input ref="inputBox" className="mdl-textfield__input" type="text" id="sample3" placeholder="Location (City)"/>
                         <label className="mdl-textfield__label" htmlFor="sample3">Search</label>
                     </div>
                     <a>
-                        <button type="submit"><i className="material-icons">send</i></button>
+                        <button className= "searchButton" type="submit"><i className="material-icons">send</i></button>
                     </a>
                 </form>
             </div>
