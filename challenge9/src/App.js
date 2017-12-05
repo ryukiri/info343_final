@@ -171,6 +171,11 @@ class App extends Component {
                         eventID: eventID,
                         list: existingList
                     });
+
+                    var mainbox = document.getElementById('mainbox');
+                    mainbox.classList.add('searched');
+                    var root = document.getElementById('root');
+                    root.classList.add('searched');
                 }
             })
         }    

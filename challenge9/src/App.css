@@ -49,7 +49,7 @@ h3 {
     margin-top: 250px;
 }
 
-.mainbox.searched {
+div#mainbox.card.container.mainbox.searched {
     max-width: 400px;
     height: 60px;
     margin-top: 20px;
@@ -57,7 +57,7 @@ h3 {
 
 #root.searched {
     /* The image used */
-    background-image: url("gmaps.png");
+    background-image: url("https://villagemedia.blob.core.windows.net/files/guelphtoday/images/stock-images/concert.jpg");
 
     /* Full height */
     height: 200px;
@@ -165,6 +165,8 @@ li.list-group-item.mdl-list__item.listItems:hover {
 .mapMain {
     height:100vh;
     overflow: hidden;
+    padding-top: 25px;
+    margin-bottom: 50px;
 }
 
 div.card.container {
