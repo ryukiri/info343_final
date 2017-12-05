@@ -182,6 +182,10 @@ dialog.mdl-dialog {
     color: black;
 } 
 
+#sample3 {
+    font-size: 16px; 
+}
+
 /*Mobile*/
 @media (max-width: 1146px) {
     .mainbox {
