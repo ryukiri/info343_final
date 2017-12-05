@@ -30,7 +30,15 @@ class SimpleMap extends Component {
           showingInfoWindow: true
        })
      })
-     
+   }
+
+   onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+        this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
    }
 
   render() {
@@ -55,7 +63,7 @@ class SimpleMap extends Component {
               marker={this.state.activeMarker}
               visible={this.state.showingInfoWindow}>
                 <div>
-                  <h1>Title22: {this.state.activeEvent}</h1>
+                  <h1>{this.state.activeEvent}</h1>
                 </div>
              </InfoWindow>
               {this.props.list.map((item) => {
