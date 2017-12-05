@@ -30,8 +30,10 @@ function SimpleMediaCard(props) {
               Austin Quach
           </Typography>
           <Typography component="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo ligula at felis pellentesque euismod. 
-            Duis fringilla ipsum dolor, sit amet consequat ex placerat a. Sed ultricies sem sit amet lobortis dignissim.
+            Austin is a junior at the University of Washington pursuing a degree in tech. 
+            He is also a 3rd year member of the Husky Marching Band. Been playing music since
+            first grade, he is quite experienced in 5 different instruments. Some hobbies include
+            basketball, jogging, baking, and photography. 
           </Typography>
         </CardContent>
       </Card>
