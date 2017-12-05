@@ -166,8 +166,9 @@ li.list-group-item.mdl-list__item.listItems:hover {
     height:100vh;
     overflow: hidden;
     padding-top: 25px;
-    margin-bottom: 50px;
-}
+    margin-bottom: 50px; 
+    margin-top: 50px; 
+} 
 
 div.card.container {
     margin-top: 200px; 
@@ -179,7 +180,7 @@ dialog.mdl-dialog {
 
 .listText {
     color: black;
-}
+} 
 
 /*Mobile*/
 @media (max-width: 1146px) {
