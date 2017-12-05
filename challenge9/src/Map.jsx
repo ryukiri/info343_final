@@ -18,7 +18,14 @@ class SimpleMap extends Component {
       showingInfoWindow: false
     };
   }
-
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  }
   onMarkerClick = (props, marker, e) => {
      this.setState({
        activeMarker: marker,
