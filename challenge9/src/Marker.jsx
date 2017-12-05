@@ -50,7 +50,7 @@ class Marker extends Component {
 
         <InfoWindow
           marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow} onMarkerClick>
+          visible={this.state.showingInfoWindow}>
             <div>
               <h1>{this.state.list.event}</h1>
             </div>

@@ -14,22 +14,28 @@ class SimpleMap extends Component {
     super(props);
     
     this.state = {
-      list: []
+      list: [],
+      showingInfoWindow: false
     };
   }
 
   onMarkerClick = (props, marker, e) => {
-     console.log(props);
+     console.log(this.state);
      this.setState({
        activeMarker: marker,
        activeEvent: props.event,
-       showingInfoWindow: true,
-       name: this.state.list.event
+       showingInfoWindow: false
+     }, () => {
+       this.setState({
+          showingInfoWindow: true
+       })
      })
-     console.log();
+     
    }
 
   render() {
+    console.log(this.state);
+    
     return (  
       <div>
         <div className="mapMain">
@@ -44,20 +50,20 @@ class SimpleMap extends Component {
               zoom={12}
               onClick={this.onMapClicked}
             >
+             
             <InfoWindow
               marker={this.state.activeMarker}
               visible={this.state.showingInfoWindow}>
                 <div>
-                  <h1>{this.state.list.event}</h1>
+                  <h1>Title22: {this.state.activeEvent}</h1>
                 </div>
              </InfoWindow>
-             
               {this.props.list.map((item) => {
                 return (
                     <Marker
                       key={item.id}
                       onClick={this.onMarkerClick}
-                      name={'SOMA'}
+                      name={this.state.list.activeEvent}
                       event={item._embedded.venues[0].name}
                       position={{
                         lat: item._embedded.venues[0].location.latitude, 
