@@ -20,7 +20,6 @@ class SimpleMap extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-     console.log(this.state);
      this.setState({
        activeMarker: marker,
        activeEvent: props.event,
@@ -41,9 +40,7 @@ class SimpleMap extends Component {
     }
    }
 
-  render() {
-    console.log(this.state);
-    
+  render() {    
     return (  
       <div>
         <div className="mapMain">

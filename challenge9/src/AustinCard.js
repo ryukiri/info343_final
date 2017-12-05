@@ -32,7 +32,7 @@ function SimpleMediaCard(props) {
           <Typography component="p">
             Austin is a junior at the University of Washington pursuing a degree in tech. 
             He is also a 3rd year member of the Husky Marching Band. Been playing music since
-            first grade, he is quite experienced in 5 different instruments. Some hobbies include
+            first grade, he is quite experienced in piano, viola, violin, flute, and piccolo. Some hobbies include
             basketball, jogging, baking, and photography. 
           </Typography>
         </CardContent>
