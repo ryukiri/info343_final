@@ -71,7 +71,7 @@ class App extends Component {
                             <div id="change-error" className="alert alert-danger" role="alert"></div>
                         </div>
 
-                         <div className="container">
+                         <div className="container" id="mapLoad">
                              {this.state.eventID ? (
                                 <Map 
                                     className="card map" 
@@ -174,6 +174,9 @@ class App extends Component {
                     mainbox.classList.add('searched');
                     var root = document.getElementById('root');
                     root.classList.add('searched');
+
+                    var mapLoad = document.getElementById('mapLoad');
+                    mapLoad.classList.add('map');
                 }
             })
         }    
