@@ -95,15 +95,15 @@ class App extends Component {
 
                                     <div className="container row devCards">
                                         <h3>Meet the Team</h3>
-                                        <div className="col-md-4">
+                                        <div className="col-md-4 devCard">
                                             <AliCard/>
                                         </div>
 
-                                        <div className="col-md-4">
+                                        <div className="col-md-4 devCard">
                                             <AustinCard/>
                                         </div>
 
-                                        <div className="col-md-4">
+                                        <div className="col-md-4 devCard">
                                             <MichelleCard/>
                                         </div>
                                     </div>
