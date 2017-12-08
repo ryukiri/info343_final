@@ -2,7 +2,7 @@
   "name": "challenge9",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://info343a-au17.github.io/team6-challenge9/challenge9",
+  "homepage": "https://ryukiri.github.io/info343_final/challenge9",
   "dependencies": {
     "autosuggest-highlight": "^3.1.1",
     "create-react-class": "^15.6.2",
